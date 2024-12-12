@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tugas_uas_1/models/artikel_model.dart';
 import 'package:tugas_uas_1/screen/data_mood.dart';
+import '../service/artikel_services.dart';
 import 'artikel.dart';
 import 'detail_artikel.dart';
 import 'outnote.dart';
@@ -7,24 +9,8 @@ import 'outnote.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({key}) : super(key: key);
+  ArtikelServices artikelServices = ArtikelServices();
 
-  final List<Artikel> artikelList = [
-    Artikel(
-      title: 'Manfaat Belajar di Era Digital',
-      description: 'Artikel tentang manfaat belajar di era digital dan bagaimana teknologi membantu pendidikan.',
-      content: 'Konten lengkap tentang manfaat belajar di era digital...',
-    ),
-    Artikel(
-      title: 'Tips Mengatur Waktu Belajar',
-      description: 'Cara efektif mengatur waktu belajar untuk hasil yang maksimal.',
-      content: 'Konten lengkap tentang cara mengatur waktu belajar...',
-    ),
-    Artikel(
-      title: 'Motivasi Belajar di Masa Pandemi',
-      description: 'Strategi menjaga motivasi belajar meskipun dalam masa pandemi.',
-      content: 'Konten lengkap tentang motivasi belajar di masa pandemi...',
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +89,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               Column(
-                children: artikelList.map((artikel) {
+                children: artikelServices.artikelList.map((artikel) {
                   return _buildArticleCard(
                     context: context,
                     artikel: artikel,
@@ -176,7 +162,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildArticleCard({required BuildContext context,required Artikel artikel, required VoidCallback onTap}) {
+  Widget _buildArticleCard({required BuildContext context,required ArtikelModel artikel, required VoidCallback onTap}) {
     return InkWell(
       onTap: onTap,
       child: Container(
