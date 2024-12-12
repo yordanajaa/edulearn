@@ -1,55 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:tugas_uas_1/models/artikel_model.dart';
+import 'package:tugas_uas_1/service/artikel_services.dart';
 
 import 'detail_artikel.dart';
 
-// Artikel model
-class Artikel {
-  final String title;
-  final String description;
-  final String content;
+// // Artikel model
+// class Artikel {
+//   final String title;
+//   final String description;
+//   final String content;
 
-  Artikel({ required this.title,  required this.description,  required this.content});
-}
+//   Artikel({ required this.title,  required this.description,  required this.content});
+// }
 
 class ArtikelScreen extends StatelessWidget {
    ArtikelScreen({key}) : super(key: key);
+  ArtikelServices artikelServices = ArtikelServices();
+
 
   // Daftar artikel
-  final List<Artikel> artikelList = [
-    Artikel(
-      title: 'Manfaat Belajar di Era Digital',
-      description: 'Artikel tentang manfaat belajar di era digital dan bagaimana teknologi membantu pendidikan.',
-      content: 'Konten lengkap tentang manfaat belajar di era digital...',
-    ),
-    Artikel(
-      title: 'Tips Mengatur Waktu Belajar',
-      description: 'Cara efektif mengatur waktu belajar untuk hasil yang maksimal.',
-      content: 'Konten lengkap tentang cara mengatur waktu belajar...',
-    ),
-    Artikel(
-      title: 'Motivasi Belajar di Masa Pandemi',
-      description: 'Strategi menjaga motivasi belajar meskipun dalam masa pandemi.',
-      content: 'Konten lengkap tentang motivasi belajar di masa pandemi...',
-    ),
-  ];
-
+  
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
         padding: const EdgeInsets.all(16),
-        itemCount: artikelList.length,
+        itemCount: artikelServices.artikelList.length,
         itemBuilder: (context, index) {
-          final artikel = artikelList[index];
+          final artikel = artikelServices.artikelList[index];
           return _buildArticleCard(context, artikel);
         },
       ),
     );
   }
 
-  Widget _buildArticleCard(BuildContext context, Artikel artikel) {
+  Widget _buildArticleCard(BuildContext context, ArtikelModel artikel) {
     return InkWell(
       onTap: () {
+        // artikelServices.addArtikel(artikel);
         Navigator.push(
           context,
           MaterialPageRoute(

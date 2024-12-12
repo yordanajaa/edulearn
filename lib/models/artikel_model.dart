@@ -1,18 +1,20 @@
 class ArtikelModel {
-  late String id;
+   String? id;
   late String title;
   late String content;
-  late String author;
-  late DateTime publishedDate;
-  late String imageUrl;
+  String description;
+   String? author;
+   DateTime? publishedDate;
+   String? imageUrl;
 
   ArtikelModel({
-    required this.id,
+     this.id,
     required this.title,
     required this.content,
-    required this.author,
-    required this.publishedDate,
-    required this.imageUrl,
+    required this.description,
+     this.author,
+     this.publishedDate,
+     this.imageUrl,
   });
 
   Map<String, dynamic> toMap() {
@@ -21,7 +23,8 @@ class ArtikelModel {
       'title': title,
       'content': content,
       'author': author,
-      'publishedDate': publishedDate.toIso8601String(),
+      'description': description,
+      'publishedDate': publishedDate?.toIso8601String(),
       'imageUrl': imageUrl,
     };
   }
@@ -32,6 +35,7 @@ class ArtikelModel {
       id: map['id'],
       title: map['title'],
       content: map['content'],
+      description: map['description'],
       author: map['author'],
       publishedDate: DateTime.parse(map['publishedDate']),
       imageUrl: map['imageUrl'],
