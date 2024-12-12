@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "67557498398",
+    "project_id": "psikiater-307dd",
+    "storage_bucket": "psikiater-307dd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:67557498398:android:5e6f98ae8aaf332d10980f",
+        "android_client_info": {
+          "package_name": "edulearn.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7EzkDMQVAG_NhJ7NBklaql8U8yQPwwOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
